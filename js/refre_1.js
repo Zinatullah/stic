@@ -1,8 +1,11 @@
 const myForm = document.getElementById("email-list");
+const filled_form_btn = $("#filled_form_reference_buttn").hide();
 
 var id = 100;
 id_of_phone = ''
 function addEmailField() {
+  const filled_form_btn = $("#filled_form_reference_buttn").show();
+
   id++;
   id_of_phone = 'phone' + id;
   const nef_wrapper = document.createElement("div");
@@ -10,15 +13,13 @@ function addEmailField() {
   var divElement1 = document.createElement("div");
   var divElement2 = document.createElement("div");
   var divElement3 = document.createElement("div");
-  var divElement4 = document.createElement("div");
 
   nef_wrapper.setAttribute("class", "row col-lg-12");
   divElement.setAttribute("class", "col-lg-6");
   divElement1.setAttribute("class", "col-lg-6");
-  divElement1.setAttribute("style", "margin-left: -8px");
   divElement2.setAttribute("class", "col-lg-6");
-  divElement3.setAttribute("class", "col-lg-6");
-  divElement3.setAttribute("style", "margin-top: 8px; width:100%");
+  divElement3.setAttribute("class", "col-lg-5");
+  divElement3.setAttribute("style", "margin-top: 8px; margin-left: 8px; width:100%");
 
   const btnAdd = document.createElement("button");
   const btnDel = document.createElement("button");
@@ -46,7 +47,7 @@ function addEmailField() {
   inputElement.setAttribute("name", "ref_person_name[]");
   inputElement.setAttribute("placeholder", "Referred (Ref.) Person Name *");
   inputElement.setAttribute("required", "true");
-  
+
   // Ref.relation
   inputElement1.setAttribute("class", "form-control p-2 m-2");
   inputElement1.setAttribute("type", "text");
@@ -71,7 +72,7 @@ function addEmailField() {
   inputElement3.setAttribute("name", 'ref_phone[]');
   inputElement3.setAttribute("placeholder", "Ref. Phone number *");
   inputElement3.setAttribute("required", "true")
-  inputElement3.setAttribute('style', 'height: 42px; margin-top: 10px; width: 198%;')
+  inputElement3.setAttribute('style', 'height: 42px; margin-top: 10px; width: 210%;')
 
   $('#iti-2__country-listbox').children().addClass('Uffffffffff');
   // $('#iti-3__country-listbox').children().addClass('refre_2');

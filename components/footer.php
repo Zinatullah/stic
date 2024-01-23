@@ -131,7 +131,7 @@
 
 <!-- JQUERY -->
 <script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/own_js"></script>
+<script src="js/own_js.js"></script>
 <script src="js/filled_form_2.js"></script>
 
 <script src="js/refre_1.js"></script>

@@ -48,10 +48,13 @@ if (isset($_POST["register"])) {
         $mail->SMTPAuth = true;
 
         //SMTP username
-        $mail->Username = 'zinatullahakrami@gmail.com';
+        // $mail->Username = 'zinatullahakrami@gmail.com';
+        $mail->Username = 'stic.aogc@gmail.com';
 
         //SMTP password
-        $mail->Password = 'dedgzkrvtmbubgrr';
+        // $mail->Password = 'dedgzkrvtmbubgrr';
+        $mail->Password = 'ghhz zjfy rwxx rgqy
+';
 
         //Enable TLS encryption;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
@@ -60,7 +63,7 @@ if (isset($_POST["register"])) {
         $mail->Port = 587;
 
         //Recipients
-        $mail->setFrom('zinatullahakrami@gmail.com', 'STIC');
+        $mail->setFrom('stic.aogc@gmail.com', 'STIC');
 
         //Add a recipient
         $mail->addAddress($email, $name);

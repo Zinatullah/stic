@@ -364,7 +364,7 @@ include('./components/header.php');
 						</div>
 					</div>
 
-					<div class="col-lg-12 row" style="margin-left: 5px; margin-top:20px; display: <?Php echo $pre_data[23] == 'no' ? '': 'none' ?>" id="filled_relocating_quesion">
+					<div class="col-lg-12 row" style="margin-left: 5px; margin-top:20px; display: <?Php echo $pre_data[23] == 'no' ? '' : 'none' ?>" id="filled_relocating_quesion">
 						<div class="form-check form-switch col-lg-6" style="display: inline;">
 							<label class="form-check-label" style="color:black; font-size:18px; padding:0;">
 								Can you relocate to Afghanistan for work?
@@ -620,7 +620,7 @@ include('./components/header.php');
 								<div id="<?php echo 'div_' . $values[0]; ?>" class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
 									<div class="row align-items-start">
 										<div class="col-3">
-											<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Referencing someone</span>
+											<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Other References</span>
 										</div>
 										<div class="col"></div>
 										<div class="col-3" style="margin-top: 50px;" id="ref_contact_detail">
@@ -646,8 +646,8 @@ include('./components/header.php');
 									</div>
 
 									<div class="col-lg-6">
-										<label class="mt-1" style="margin: 0;">Your relation with the referred person?</label>
-										<input disabled class="form-control p-2 mb-2" type="text" id='<?php echo 'ref_relation_' . $num ?>' name="ref_relation_with" placeholder="Your relation with the referred person? *" value="<?php echo $values[2] ?>">
+										<label class="mt-1" style="margin: 0; ">Your relation with the referred person?</label>
+										<input style="width: 102%;" disabled class="form-control p-2 mb-2" type="text" id='<?php echo 'ref_relation_' . $num ?>' name="ref_relation_with" placeholder="Your relation with the referred person? *" value="<?php echo $values[2] ?>">
 									</div>
 
 									<div class="col-lg-6">
@@ -670,7 +670,23 @@ include('./components/header.php');
 								</div>
 							</form>
 						<?php } ?>
+						<div class="row col-lg-12 email-input__w inputs-set" style="margin-left: 10px; margin-top:10px">
+							<button class="btn-add-input" onclick="addEmailField()" type="button">
+								Add more people+
+							</button>
+						</div>
 					</div>
+					<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center; margin-top: 5px">
+					</div>
+
+					<form action="./backend/reference.php" method="post">
+						<div class="row col-lg-12" id="email-list"></div>
+						<div class="row" style="margin-top: 20px;" id='filled_form_reference_buttn'>
+							<div class="col-lg-11 form-group login-btn" style="margin-left: 45px;">
+								<button style="width: 100%; padding: 15px;" class="btn" name="submit" type="submit">Send</button>
+							</div>
+						</div>
+					</form>
 					<!-- <div class="row col-lg-12 email-input__w inputs-set" id="" style="margin-left: 10px; margin-top:10px">
 						<button class="btn-add-input" onclick="addEmailField()" type="button">
 							Add more people+

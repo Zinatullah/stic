@@ -18,12 +18,12 @@ if (!isset($_COOKIE['language_mode'])) {
 <section class="slider">
 	<div class="hero-slider">
 		<!-- Start Single Slider -->
-		<div class="single-slider" style="background-image:url('img/Banner 1.jpg')">
+		<div  class="single-slider" style="background-image:url('img/Banner 1.png');">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner1; ?></h1>
+							<h1 style="color: white; font-weight:100; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner1; ?></h1>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Learn More</a> -->
@@ -40,7 +40,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner2; ?></h1>
+							<h1 style="font-weight:100; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner2; ?></h1>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a> -->
 								<!-- <a href="#" class="btn primary">About Us</a> -->
@@ -57,7 +57,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner3; ?></h1>
+							<h1 style="font-weight:100; color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner3; ?></h1>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -73,7 +73,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner4; ?></h1>
+							<h1 style="font-weight:100; color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner4; ?></h1>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -89,7 +89,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h2 style="color: black; font-weight:bolder; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner5; ?></h2>
+							<h2 style="font-weight:100; color: black; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner5; ?></h2>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -105,7 +105,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner6; ?></h1>
+							<h1 style="font-weight:100; color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner6; ?></h1>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -121,7 +121,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner7; ?></h1>
+							<h1 style="font-weight:100; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner7; ?></h1>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -203,9 +203,9 @@ if (!isset($_COOKIE['language_mode'])) {
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="section-title" style="padding: 0px !important;">
-					<h2 style="font-family:garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;">
+					<p style="font-size: 18pt;font-weight: bolder;color: black; font-family:garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;">
 						<?php echo $What_is_STI_Commission_header ?>
-					</h2>
+					</p>
 					<!-- <img src="img/section-img.png" alt="#"> -->
 					<p style="text-align: justify; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;">
 						<?php echo $What_is_STI_Commission_paragraph ?>

@@ -119,6 +119,7 @@ if (isset($_COOKIE['loggedIn'])) {
             <h4 class="text-cetner" style="color: black; font-family: garamond; font-weight: 900;">
                 Science,Technology, and Innovation Commission (STIC) Afghanistan
             </h4>
+            <h6 style="margin-top: 5px; font-family: Calibri Light (Headings); font-style:italic;">Building the Nation with Passion</h6>
         </div>
 
         <!-- Header Inner -->
@@ -128,8 +129,10 @@ if (isset($_COOKIE['loggedIn'])) {
                     <div class="row">
                         <div id="logo_dev">
                             <!-- Start Logo -->
-                            <div class="logo">
-                                <a style="position:absolute; margin-right: <?php echo $lng != "en" ? '50px;' : '' ?> margin-left: 50px; margin-top: -15px" href="index.html"><img id="logo_size" src="img/logo.png" alt="#" width="100px"></a>
+                            <div class="logo" style="margin-top: 15px !important;">
+                                <a style="position:absolute; margin-right: <?php echo $lng != "en" ? '50px;' : '' ?> margin-left: 50px; margin-top: -15px" href="index.html">
+                                    <img id="logo_size" src="img/logo.png" alt="#" width="100px">
+                                </a>
                             </div>
                             <!-- End Logo -->
                             <!-- Mobile Nav -->
@@ -141,31 +144,47 @@ if (isset($_COOKIE['loggedIn'])) {
                             <div class="main-menu">
                                 <nav class="navigation">
                                     <ul class="nav menu" style="margin-top: 10px">
-                                        <li style="margin-left: <?php echo $lng == 'en' ? '150px' : '' ?>; margin-right: <?php echo $lng != 'en' ? '150px' : '' ?> "></li>
+                                        <li style="font-family:garamond; margin-left: <?php echo $lng == 'en' ? '150px' : '' ?>; margin-right: <?php echo $lng != 'en' ? '150px' : '' ?> "></li>
                                         <li id="logoLi"><img id="logo_size" src="img/logo.png" alt="#" width="70px"></li>
-                                        <!-- <li id="homepage_home" style="margin-left: <?php echo $lng == 'en' ? '150px !important : 0 !important; margin-right: 150px' : '' ?> "><a class="ChangeMargin" href="/sti"><?php echo $home; ?></a></li> -->
-                                        <li id="homepage_home"><a class="ChangeMargin" href="/sti"><?php echo $home; ?></a></li>
-                                        <li style="margin: 0px;"><a href="#"><?php echo $about_us; ?><i class="icofont-rounded-down"></i></a>
+                                        <li style="font-family: garamond;" id="homepage_home"><a style="font-size: 16px;" class="ChangeMargin" href="/"><?php echo $home; ?></a></li>
+                                        <li style="font-family:garamond; margin: 0px;">
+                                            <a style="font-size: 16px;" href="#"><?php echo $about_us; ?>
+                                                <i class="icofont-rounded-down"></i>
+                                            </a>
                                             <ul class="dropdown">
-                                                <li><a style="text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; " href="What_is_STI_Commission.php"><?php echo $what_is_sti_commisssion; ?></a></li>
-                                                <li><a style="text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; " href="how_do_we_work.php"><?php echo $how_we_work; ?></a></li>
+                                                <li>
+                                                    <a style="font-size:16px; font-family:garamond; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; " href="What_is_STI_Commission.php"><?php echo $what_is_sti_commisssion; ?>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a style="font-size:16px; font-family:garamond; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; " href="how_do_we_work.php"><?php echo $how_we_work; ?>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
-                                        <li style="margin: 0px;"><a href="#"><?php echo $join_us; ?><i class="icofont-rounded-down"></i></a>
+                                        <li style="font-family:garamond; margin: 0px;">
+                                            <a style="font-size:16px;" href="#"><?php echo $join_us; ?>
+                                                <i class="icofont-rounded-down"></i>
+                                            </a>
                                             <ul class="dropdown">
-                                                <li><a data-bs-toggle="modal" style="text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; " data-bs-target="#staticBackdrop" href="mainform.php"><?php echo $fill_the_form; ?></a></li>
+                                                <li>
+                                                    <a data-bs-toggle="modal" style="font-size:16px; font-family:garamond; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; " data-bs-target="#staticBackdrop" href="mainform.php"><?php echo $fill_the_form; ?>
+                                                    </a>
+                                                </li>
                                             </ul>
                                         </li>
-                                        <li style="margin: 0px;"><a href="Communities_of_Practice.php"><?php echo $commession_of_practices; ?></a></li>
+                                        <li style="font-family:garamond; margin: 0px;">
+                                            <a style="font-size:16px;" href="Communities_of_Practice.php"><?php echo $commession_of_practices; ?></a>
+                                        </li>
                                         <?php $display_signin = $display == 'none' ? 'block' : 'none'; ?>
-                                        <li style="margin: 0px;"><a href="news.php"><?php echo $news_and_update; ?></a></li>
-                                        <li style="margin: 0px;"><a href="./contact.php"><?php echo $contact_us; ?></a></li>
-                                        <li style=" display: <?php echo $display_signin ?>;"><a href="login.php"><?php echo $sing_up_sign_in; ?></a>
+                                        <li style="font-family:garamond; margin: 0px;"><a style="font-size:16px;" href="news.php"><?php echo $news_and_update; ?></a></li>
+                                        <li style="font-family:garamond; margin: 0px;"><a style="font-size:16px;" href="./contact.php"><?php echo $contact_us; ?></a></li>
+                                        <li style="font-family:garamond;  display: <?php echo $display_signin ?>;"><a style="font-size: 16px" href="login.php"><?php echo $sing_up_sign_in; ?></a>
 
 
                                         <li>
                                             <a href="#">
-                                                <span>
+                                                <span style="font-size:16px;">
                                                     <svg width="25" height="25" viewBox="0 0 64 64" xml:space="preserve">
                                                         <path fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="10" d="M32.001.887C49.185.887 63.114 14.816 63.113 32 63.114 49.185 49.184 63.115 32 63.113 14.815 63.114.887 49.185.888 32.001.885 14.816 14.815.887 32.001.887zM32 1v62m31-31H1" />
                                                         <path fill="none" stroke="#000" stroke-width="2" stroke-miterlimit="10" d="M30 1S16 12 16 32s14 31 14 31m4-62s14 11 14 31-14 31-14 31" />
@@ -173,22 +192,28 @@ if (isset($_COOKIE['loggedIn'])) {
                                                     </svg>
                                                 </span>
                                             </a>
-                                            <?php
 
+                                            <?php
                                             $url = $_SERVER['REQUEST_URI'];
                                             $baseURL = parse_url($url, PHP_URL_PATH);
                                             ?>
 
                                             <ul class="dropdown" style="width: 150px; margin-top:10px">
-                                                <li><a href="./backend/lang.php?lang=en&url=<?php echo $baseURL; ?>">English</a></li>
-                                                <li><a href="./backend/lang.php?lang=ps&url=<?php echo $baseURL; ?>">پښتو</a></li>
-                                                <li><a href="./backend/lang.php?lang=dr&url=<?php echo $baseURL; ?>">دری</a></li>
+                                                <li>
+                                                    <a style="font-size: 16px" href="./backend/lang.php?lang=en&url=<?php echo $baseURL; ?>">English</a>
+                                                </li>
+                                                <li>
+                                                    <a style="font-size: 16px" href="./backend/lang.php?lang=ps&url=<?php echo $baseURL; ?>">پښتو</a>
+                                                </li>
+                                                <li>
+                                                    <a style="font-size: 16px" href="./backend/lang.php?lang=dr&url=<?php echo $baseURL; ?>">دری</a>
+                                                </li>
                                             </ul>
                                         </li>
 
-                                        <li style="display: <?php echo $display ?>;">
+                                        <li style="font-family: garamond; font-weight: 900; display: <?php echo $display ?>;">
                                             <a href="#">
-                                                <span style="position:relative; top: -8px; color: black; cursor: pointer">
+                                                <span style="font-size: 16px; position:relative; top: -8px; color: black; cursor: pointer">
                                                     <?php echo $result[1] ?>
                                                 </span>
                                                 <svg height="25" width="25" viewBox="0 0 448 512" fill="black" style="border: 2px solid black; border-radius: 50%; padding: 2px">
@@ -196,8 +221,8 @@ if (isset($_COOKIE['loggedIn'])) {
                                                 </svg>
                                             </a>
                                             <ul class="dropdown" style="width: 200px; margin-top: 8px; margin-left:20px">
-                                                <li><a href="filled_form.php">Edit Profile</a></li>
-                                                <li><a href="backend/logout.php">logout</a></li>
+                                                <li><a style="font-size: 16px" href="filled_form.php">Edit Profile</a></li>
+                                                <li><a style="font-size: 16px" href="backend/logout.php">logout</a></li>
                                             </ul>
                                         </li>
                                     </ul>
