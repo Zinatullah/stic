@@ -190,6 +190,30 @@ $(document).ready(function () {
     }
   });
 
+  $("#filled_refer_show").change(function () {
+    if ($(this).is(":checked")) {
+      $("#filled_refer_content").show();
+      $("#refre_btn").show();
+      $('#ref_person_name').prop('required', true)
+      $('#ref_relation_with').prop('required', true)
+      $('#ref_email_address').prop('required', true)
+      $('#phone1').prop('required', true)
+      $('#message').prop('required', true)
+    }
+  });
+
+  $("#filled_refer_hide").change(function () {
+    if ($(this).is(":checked")) {
+      $("#filled_refer_content").hide();
+      $('#ref_person_name').prop('required', false)
+      $('#refre_btn').prop('required', false)
+      $('#ref_relation_with').prop('required', false)
+      $('#ref_email_address').prop('required', false)
+      $('#phone1').prop('required', false)
+      $('#message').prop('required', false)
+    }
+  });
+
   $('#province').change(function () {
     var province = $(this).val();
     var url_address = 'backend/districts.php?province=' + province;

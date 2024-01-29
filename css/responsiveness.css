@@ -1,0 +1,29 @@
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+  .garamond_font {
+    font-family: "garamond" !important;
+  }
+  .banner_responsive {
+    font-size: 28pt !important;
+    font-weight: 700 !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .garamond_font {
+    font-family: "garamond" !important;
+  }
+  .banner_responsive {
+    font-size: 18pt !important;
+    font-weight: 900 !important;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .garamond_font {
+    font-family: "garamond" !important;
+  }
+  .banner_responsive {
+    font-size: 18pt !important;
+    font-weight: 900 !important;
+  }
+}

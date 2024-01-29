@@ -76,7 +76,7 @@
 					<div class="copyright-content">
 						<p style="direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;">
 							<?php echo $copyright ?>
-							<a href="https://aogc.gov.af" target="_blank">AOGC</a>
+							<a href="#">AOGC</a>
 						</p>
 					</div>
 				</div>

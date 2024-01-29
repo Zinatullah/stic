@@ -9,6 +9,19 @@ if (isset($_GET['check'])) {
 	$display = '';
 }
 
+
+if (isset($_GET['yes'])) {
+	$message = "Incorrect password";
+	echo "<script>alert('$message');</script>";
+}
+
+
+if (isset($_GET['no'])) {
+	$message = "User not found";
+	echo "<script>alert('$message');</script>";
+}
+
+
 ?>
 
 <?php include('./components/header.php') ?>
@@ -45,7 +58,7 @@ if (isset($_GET['check'])) {
 				<div class="page-content mb-5 pb-5">
 					<div class="form-v6-content mb-5 pb-5">
 						<div class="col-12 col-md-12 col-lg-12 col-xl-12" > 
-							<form class="form-detail needs-validation" novalidate action="./backend/backend_login.php" method="post">
+							<form class="form-detail" action="./backend/backend_login.php" method="post">
 								<!-- <form class="row g-3 needs-validation" novalidate> -->
 								<h2>
 									<svg width="50px" height="50px" viewBox="0 0 16 16" ill="#000000">

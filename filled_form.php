@@ -58,6 +58,11 @@ $profession = 'SELECT * FROM `z_profession` ORDER by name';
 $profession_result = mysqli_query($connection, $profession);
 $profession_data = mysqli_fetch_all($profession_result);
 
+$sectors = 'SELECT * FROM `z_sectors` ORDER by name';
+$sectors_result = mysqli_query($connection, $sectors);
+$sectors_data = mysqli_fetch_all($sectors_result);
+
+
 if (isset($_COOKIE['loggedIn'])) {
 	$email = $_COOKIE['loggedIn'];
 	$pre_data_query = 'SELECT * FROM `main_form` where email ="' . $email . '"';
@@ -67,8 +72,6 @@ if (isset($_COOKIE['loggedIn'])) {
 	$ref_query = 'SELECT * FROM `references_people` WHERE main_email = "' . $email . '"';
 	$ref_result = mysqli_query($connection, $ref_query);
 	$ref_data = mysqli_fetch_all($ref_result);
-
-	// print_r($ref_data);
 }
 
 
@@ -78,19 +81,19 @@ include('./components/header.php');
 ?>
 
 <div class="container" style="background-color: blue; min-height: 10px; border-radius: 10px"></div>
-<section class="contact-us section" style="padding: 50px !important;">
+<section class="contact-us section">
 
 	<div class="container">
 		<div class="inner">
 			<div class="row">
 				<div class="col-lg-12">
-					<h2 style="text-align: center; margin-top: 50px;">Profile information</h2>
+					<h2 style="text-align: center;">Profile information</h2>
 					<!-- Personal Information section -->
 					<div class="row col-lg-12" style="margin-top: 0px;">
 						<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
 							<div class="row align-items-start">
-								<div class="col-3">
-									<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Personal Information</span>
+								<div class="col-3" style="display: flex; justify-content:flex-start">
+									<span style="background: purple;color: white;font-family: garamond; height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Personal Information</span>
 								</div>
 								<div class="col"></div>
 								<div class="col-1" style="margin-top: 50px;" id="personal_info">
@@ -192,7 +195,7 @@ include('./components/header.php');
 									<label class="mt-1" style="margin: 0;">Valayat</label>
 									<select name="volayat" id="province" class="form-control p-2 mb-2" style="height: 42px;   color: gray" disabled>
 										<option value="<?php echo $pre_data[10] ?>" class="nice-select hidden" hidden>
-											<?php echo $pre_data[10] ?>
+											<?php echo $pre_data[10] ? $pre_data[11] : "Valayat" ?>
 										</option>
 										<?php foreach ($provinces_data as $value) { ?>
 											<option value="<?php echo $value[1] ?>">
@@ -206,13 +209,13 @@ include('./components/header.php');
 									<label class="mt-1" style="margin: 0;">Volusvali</label>
 									<select name="volaswali" id="volaswali" class="form-control p-2 mb-2;" style="height: 42px;   color: gray" disabled>
 										<option value="<?php echo $pre_data[11] ?>" class="nice-select hidden" hidden>
-											<?php echo $pre_data[11] ?>
+											<?php echo $pre_data[11] ? $pre_data[11] : "Volaswali"?>
 										</option>
 									</select>
 								</div>
 								<div class="col-lg-6">
 									<label class="mt-1" style="margin: 0;">Tazkira</label>
-									<input class="form-control p-2 mb-2" type="text" id="tazkira" name="tazkira" placeholder="<?php echo $pre_data[12] ?>" disabled value="<?php echo $pre_data[12] ?>">
+									<input class="form-control p-2 mb-2" type="text" id="tazkira" name="tazkira" placeholder="<?php echo $pre_data[12] ? $pre_data[12] : "Tazkira" ?>" disabled value="<?php echo $pre_data[12] ?>">
 								</div>
 							</div>
 							<div class="col-lg-12 row" style="margin-left: 15px; margin-top: 15px; display: none" id="personal_info_btn">
@@ -223,34 +226,32 @@ include('./components/header.php');
 
 					<!-- Education section -->
 					<div class="row col-lg-12" style="margin-top: 0px;">
-						<form action="./backend/edits.php" class="row container ml-1" method="POST">
-							<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
-								<div class="row align-items-start">
-									<div class="col-3">
-										<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Education & Experience</span>
-									</div>
-									<div class="col"></div>
-									<div class="col-1" style="margin-top: 50px;" id="education">
-										<span id="">
-											<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
-												<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
-											</svg>
-										</span>
-									</div>
+						<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
+							<div class="row align-items-start">
+								<div class="col-3" style="display: flex; justify-content:flex-start">
+									<span style="background: purple;color: white;font-family: garamond; height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Education & Experience</span>
+								</div>
+								<div class="col-9" style="margin-top: 50px; display:flex; justify-content:flex-end;" id="education">
+									<span id="" style="margin-right: -20px">
+										<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
+											<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
+										</svg>
+									</span>
 								</div>
 							</div>
-
+						</div>
+						<form action="./backend/edits.php" class="row container ml-1" method="POST">
 							<div class="col-lg-6" style="margin-top: 10px;">
 								<label class="mt-1" style="margin: 0;">Qualification</label>
 								<input value="<?php echo $pre_data[13] ?>" class="form-control p-2 mb-2" list="datalistOptions1" id="qualification" name="qualification" placeholder="Qualification" required disabled>
 								<datalist id="datalistOptions1">
-									<option value="Doctoral degree">Doctoral degree</option>
-									<option value="Masters degree">Masters degree</option>
-									<option value="Graduate diploma">Graduate diploma</option>
-									<option value="Graduate certificate">Graduate certificate</option>
-									<option value="Bachelor degree">Bachelor degree</option>
-									<option value="Diploma">Diploma</option>
-									<option value="Advanced diploma/Associates degree">Advanced diploma/Associates degree</option>
+									<datalist id="datalistOptions1">
+										<option value="Doctoral Degree">Doctoral Degree</option>
+										<option value="Master Degree">Master Degree</option>
+										<option value="Bachelor Degree">Bachelor Degree</option>
+										<option value="Diploma">Diploma</option>
+										<option value="High school Diploma">High school Diploma</option>
+									</datalist>
 								</datalist>
 							</div>
 
@@ -385,23 +386,22 @@ include('./components/header.php');
 
 					<!-- Relocation -->
 					<div class="row col-lg-12" style="margin-top: 30px; margin-bottom: 30px; display: <?php echo $pre_data[24] == 'yes' ? 'block' : 'none' ?>" id="filled_relocation_content">
-						<form action="./backend/edits.php" class="row container ml-1" method="POST">
-							<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
-								<div class="row align-items-start">
-									<div class="col-3">
-										<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Relocation</span>
-									</div>
-									<div class="col"></div>
-									<div class="col-1" style="margin-top: 50px;" id="education">
-										<span id="relocation">
-											<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
-												<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
-											</svg>
-										</span>
-									</div>
+						<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
+							<div class="row align-items-start">
+								<div class="col-3" style="display: flex; justify-content:flex-start">
+									<span style="background: purple;color: white;font-family: garamond; height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Relocation</span>
+								</div>
+								<div class="col"></div>
+								<div class="col-1" style="margin-top: 50px;" id="education">
+									<span id="relocation">
+										<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
+											<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
+										</svg>
+									</span>
 								</div>
 							</div>
-
+						</div>
+						<form action="./backend/edits.php" class="row container ml-1" method="POST">
 							<div class="col-lg-6">
 								<label class="mt-1" style="margin: 0;">Preferred City</label>
 								<select name="perfered_city" id="city" class="form-control p-2 mb-2" style="height: 42px;  color: gray" disabled>
@@ -466,28 +466,32 @@ include('./components/header.php');
 
 					<!-- Proposal content -->
 					<div class="col-lg-12 row" style="margin-top:20px; display: <?php echo $pre_data[28] == 'yes' ? 'block' : 'none'; ?> " id="Filled_proposal_content">
-						<form action="./backend/edits.php" class="row container ml-1" method="POST" enctype="multipart/form-data">
-							<div class="row col-lg-12" style="margin-top: 0px; margin-bottom: 30px;">
-								<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
-									<div class="row align-items-start">
-										<div class="col-3">
-											<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Proposal content</span>
-										</div>
-										<div class="col"></div>
-										<div class="col-1" style="margin-top: 50px;" id="education">
-											<span id="proposal">
-												<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
-													<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
-												</svg>
-											</span>
-										</div>
+						<div class="row col-lg-12" style="margin-top: 0px; margin-bottom: 30px;">
+							<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
+								<div class="row align-items-start">
+									<div class="col-3" style="display: flex; justify-content:flex-start">
+										<span style="background: purple;color: white;font-family: garamond; height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Proposal content</span>
+									</div>
+									<div class="col"></div>
+									<div class="col-1" style="margin-top: 50px;" id="education">
+										<span id="proposal">
+											<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
+												<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
+											</svg>
+										</span>
 									</div>
 								</div>
-
+							</div>
+							<form action="./backend/edits.php" class="row container ml-1" method="POST" enctype="multipart/form-data">
 								<div class="col-lg-6" style="margin-top: 10px;">
 									<label class="mt-1" style="margin: 0;">Which sector your proposal belongs to ?</label>
 									<input class="form-control p-2 mb-2" list="datalistOptions11" name="sector" placeholder="Which sector your proposal belongs to? *" disabled id="sector" value="<?php echo $pre_data[29] ?>">
 									<datalist id="datalistOptions11">
+										<?php foreach ($sectors_data as $value) { ?>
+											<option value="<?php echo $value[1] ?>">
+												<?php echo $value[1] ?>
+											</option>
+										<?php } ?>
 										<?php foreach ($sectors_data as $value) { ?>
 											<option value="<?php echo $value[1] ?>">
 												<?php echo $value[1] ?>
@@ -499,8 +503,8 @@ include('./components/header.php');
 								<div class="col-lg-6">
 									<div class="mb-3" style="margin-top: 10px;" id='proposal_attachments'>
 										<label class="mt-1" style="margin: 0;">Propsal Attachments</label>
-										<div class="form-control p-2 mb-2" style="color: blue; text-decoration:underline; background: #e9ecef;">
-											<a href="./backend/uploads/<?php echo $pre_data[30] ?>" target="_blank" disabled><?php echo $pre_data[30] ?></a>
+										<div class="form-control p-2 mb-2;" style="color: blue; text-decoration:underline; background: #e9ecef;  height: 42px">
+											<a style="height: 42px;" href="./backend/uploads/<?php echo $pre_data[30] ?>" target="_blank" disabled><?php echo $pre_data[30] ?></a>
 										</div>
 									</div>
 									<div class="mb-3" id="edit_attach" style="display: none;">
@@ -513,7 +517,7 @@ include('./components/header.php');
 									<label class="mt-1" style="margin: 0;">When you are ready to start?</label>
 									<select name="start_work" id="start_work" class="form-control p-2 mb-2" style="height: 42px;  color: gray" disabled>
 										<option value="<?php echo $pre_data[31] ?>" class="nice-select hidden" disabled selected>
-											<?php echo $pre_data[31] ?>
+											<?php echo $pre_data[31] ? $pre_data[31]  : 'None'?>
 										</option>
 										<option data-value="1" class="option">1-7 Days</option>
 										<option data-value="2" class="option">2-4 Weeks</option>
@@ -534,29 +538,29 @@ include('./components/header.php');
 								<div class="col-lg-12 row" style="margin-left: 15px; margin-top: 15px; display: none" id="proposal_btn">
 									<button class="btn btn-lg col-lg-12" name="proposal_btn" type="submit">Update</button>
 								</div>
-							</div>
+						</div>
 						</form>
 					</div>
 
 					<!-- Contact -->
 					<div class="col-lg-12 row" style="margin-top:20px">
-						<form action="./backend/edits.php" class="row container ml-1" method="POST">
-							<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
-								<div class="row align-items-start">
-									<div class="col-3">
-										<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Contact Details</span>
-									</div>
-									<div class="col"></div>
-									<div class="col-1" style="margin-top: 50px;" id="contact_detail">
-										<span id="">
-											<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
-												<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
-											</svg>
-										</span>
-									</div>
+						<div class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
+							<div class="row align-items-start">
+								<div class="col-3" style="display: flex; justify-content:flex-start">
+									<span style="background: purple;color: white;font-family: garamond; height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Contact Details</span>
+								</div>
+								<div class="col"></div>
+								<div class="col-1" style="margin-top: 50px;" id="contact_detail">
+									<span id="">
+										<svg width="25" height="25" viewBox="0 0 16 16" version="1.1" style="margin-top: -4px; cursor:pointer">
+											<path fill="blue" d="M16 4c0 0 0-1-1-2s-1.9-1-1.9-1l-1.1 1.1v-2.1h-12v16h12v-8l4-4zM6.3 11.4l-0.6-0.6 0.3-1.1 1.5 1.5-1.2 0.2zM7.2 9.5l-0.6-0.6 5.2-5.2c0.2 0.1 0.4 0.3 0.6 0.5zM14.1 2.5l-0.9 1c-0.2-0.2-0.4-0.3-0.6-0.5l0.9-0.9c0.1 0.1 0.3 0.2 0.6 0.4zM11 15h-10v-14h10v2.1l-5.9 5.9-1.1 4.1 4.1-1.1 2.9-3v6z"></path>
+										</svg>
+									</span>
 								</div>
 							</div>
+						</div>
 
+						<form action="./backend/edits.php" class="row container ml-1" method="POST">
 							<div class="col-lg-6">
 								<div class="mb-2">
 									<label class="mt-1" style="margin: 0;">Phone Number</label>
@@ -597,17 +601,17 @@ include('./components/header.php');
 							<div style="margin-top: 0px; " class="col-lg-4">
 								<span style="margin-left: 0px; margin-top: 20px">
 									<span style="color: black; font-size: 16px">Yes</span>
-									<input style="width: 20px; height: 20px; margin-left: 10px" class="form-check-input" name="reference" type="radio" role="switch" id="refer_show" <?php echo $pre_data[38] == 'yes' ? 'checked' : '' ?>>
+									<input style="width: 20px; height: 20px; margin-left: 10px" class="form-check-input" name="reference" type="radio" role="switch" id="filled_refer_show" <?php echo count($ref_data) > 0 ? 'checked' : '' ?>>
 								</span>
 								<span style="margin-left:50px">
 									<span style="color: black; font-size: 16px">No</span>
-									<input style="width: 20px; height: 20px; margin-left: 13px" class="form-check-input" name="reference" type="radio" role="switch" id="refer_hide">
+									<input style="width: 20px; height: 20px; margin-left: 13px" class="form-check-input" name="reference" type="radio" role="switch" id="filled_refer_hide" <?php echo count($ref_data) == 0 ? 'checked' : '' ?>>
 								</span>
 							</div>
 						</div>
 					</div>
 					<!-- References -->
-					<div class="row col-lg-12" id="filled_refer_content" style="display: <?php echo $pre_data[38] == 'yes' ? 'block' : 'none' ?>">
+					<div class="row col-lg-12" id="filled_refer_content" style="display: <?php echo count($ref_data) == 0 ? 'block' : '' ?>">
 						<?php
 						$phone_number_ref = 'phone';
 						$svg = 'svg';
@@ -619,12 +623,12 @@ include('./components/header.php');
 
 								<div id="<?php echo 'div_' . $values[0]; ?>" class="container text-center" style="width: 98%; margin-left: 1%; border-bottom: 2px solid black; text-align: center;">
 									<div class="row align-items-start">
-										<div class="col-3">
-											<span style="background: purple;color: white;width: 220px;height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">Other References</span>
+										<div class="col-1" style="display: flex; justify-content:flex-start">
+											<span style="background: purple;color: white;font-family: garamond; height: 30px;padding:5px; font-size: 18px; font-weight:100" class="badge mt-5 text-bg-success">References</span>
 										</div>
 										<div class="col"></div>
-										<div class="col-3" style="margin-top: 50px;" id="ref_contact_detail">
-											<span style="margin-left: 15px;">
+										<div class="col-6" style="margin-top: 50px; display: flex; justify-content:flex-end" id="ref_contact_detail">
+											<span>
 												<a href="./backend/delete.php?id=<?php echo $values[0] ?>">
 													<svg width="25" height="25" version="1.1" style="margin-top: -4px; cursor:pointer">
 														<path fill="red" d="m9.129 0 1.974.005c.778.094 1.46.46 2.022 1.078.459.504.7 1.09.714 1.728h5.475a.69.69 0 0 1 .686.693.689.689 0 0 1-.686.692l-1.836-.001v11.627c0 2.543-.949 4.178-3.041 4.178H5.419c-2.092 0-3.026-1.626-3.026-4.178V4.195H.686A.689.689 0 0 1 0 3.505c0-.383.307-.692.686-.692h5.47c.014-.514.205-1.035.554-1.55C7.23.495 8.042.074 9.129 0Zm6.977 4.195H3.764v11.627c0 1.888.52 2.794 1.655 2.794h9.018c1.139 0 1.67-.914 1.67-2.794l-.001-11.627ZM6.716 6.34c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.686.692.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692Zm2.726 0c.38 0 .686.31.686.692v8.05a.689.689 0 0 1-.686.692.689.689 0 0 1-.685-.692v-8.05c0-.382.307-.692.685-.692Zm2.728 0c.378 0 .685.31.685.692v8.05a.689.689 0 0 1-.685.692.689.689 0 0 1-.686-.692v-8.05a.69.69 0 0 1 .686-.692ZM9.176 1.382c-.642.045-1.065.264-1.334.662-.198.291-.297.543-.313.768l4.938-.001c-.014-.291-.129-.547-.352-.792-.346-.38-.73-.586-1.093-.635l-1.846-.002Z"></path>
@@ -670,9 +674,9 @@ include('./components/header.php');
 								</div>
 							</form>
 						<?php } ?>
-						<div class="row col-lg-12 email-input__w inputs-set" style="margin-left: 10px; margin-top:10px">
+						<div id="refre_btn" class="row col-lg-12 email-input__w inputs-set" style="margin-left: 10px; margin-top:10px; display: <?php echo count($ref_data) > 0 ? '' : 'none' ?>">
 							<button class="btn-add-input" onclick="addEmailField()" type="button">
-								Add more people+
+								Add Reference
 							</button>
 						</div>
 					</div>
@@ -687,12 +691,6 @@ include('./components/header.php');
 							</div>
 						</div>
 					</form>
-					<!-- <div class="row col-lg-12 email-input__w inputs-set" id="" style="margin-left: 10px; margin-top:10px">
-						<button class="btn-add-input" onclick="addEmailField()" type="button">
-							Add more people+
-						</button>
-					</div>
-					<div class="row col-lg-12 mb-2" id="email-list"></div> -->
 				</div>
 			</div>
 		</div>

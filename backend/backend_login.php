@@ -20,10 +20,12 @@ if (isset($_POST['login'])) {
     $check_pwd = password_verify($pwd, $db_pwd);
 
 
+    $message = count($data) > 0 ? "yes": 'no';
+
     if ($email === $db_email && $check_pwd && $db_verification) {
         setcookie($cookie_name, $cookie_email, time() + 36000, "/");
         header('location: ../index.php');
     } else {
-        header('location: ../login.php?check=faild');
+        header('location: ../login.php?'.$message);
     }
 }

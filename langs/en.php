@@ -10,7 +10,7 @@ $fill_the_form = "Fill the form to join us";
 $commession_of_practices = "Communities of Practice";
 $news_and_update = "News and Updates";
 $contact_us = "Contacts Us";
-$sing_up_sign_in = "Sgin in/up";
+$sing_up_sign_in = "Sign in/up";
 
 
 ////////////////////////// Footer //////////////////////////
@@ -46,7 +46,7 @@ $footer_location_paragraph = 'R&D Office, Afghan State Oil & Gas Corporation (AO
 
 ////////////////////////// Index page  //////////////////////////
 $learn_more = "LEARN MORE";
-$badge1 = 'The Science, Technology, and Innovation (STI) Commission is a new unit established under the Ministry of Finance (MoF)...';
+$badge1 = 'The Science, Technology, and Innovation (STI) Commission is a new unit established under the Ministry ...';
 $badge2 = 'The STI Commission organizes its operations through effectively capitalizing on the personal and professional networks as ...';
 $badge3 = 'The registered competences and submitted project ideas shall be clustered under the relevant themes or sectors which we name ...';
 
@@ -63,7 +63,7 @@ $banner7 = "Join us to do it together …";
 
 ////////////////////////// Pages  //////////////////////////
 $What_is_STI_Commission_header = "What is STI Commission?";
-$What_is_STI_Commission_paragraph = "The Science, Technology, and Innovation (STI) Commission is a new unit established under the Ministry of Finance (MoF) and it is supervised by the R&D department of Afghan State Oil & Gas Corporation (AOGC). The purpose of establishing the STI Commission is to systematically search, register, and facilitate all the potential competences, resources, investments, aspirations, and project ideas within the STI framework for the national reconstruction and sustainable economic & social development of Afghanistan. Any Afghan or non-Afghan residing in the country or living abroad may register their competences, interests, and project ideas through this platform to jointly explore the development prospects through sharing their scientific knowledge, technological applications, and innovative solutions within the targeted sectors. The targeted sectors have been defined under the section ‘How we work’.";
+$What_is_STI_Commission_paragraph = "The Science, Technology, and Innovation (STI) Commission is a new unit established under the Ministry and it is supervised by the R&D department of Afghan State Oil & Gas Corporation (AOGC). The purpose of establishing the STI Commission is to systematically search, register, and facilitate all the potential competences, resources, investments, aspirations, and project ideas within the STI framework for the national reconstruction and sustainable economic & social development of Afghanistan. Any Afghan or non-Afghan residing in the country or living abroad may register their competences, interests, and project ideas through this platform to jointly explore the development prospects through sharing their scientific knowledge, technological applications, and innovative solutions within the targeted sectors. The targeted sectors have been defined under the section ‘How we work’.";
 
 $CommunitiesـofـPractice_head = "Communities of Practice (COPs)";
 $CommunitiesـofـPractice_paragraph = "The registered competences and submitted project ideas shall be clustered under the relevant themes or sectors which we name as the “Communities of Practice” (COPs). A community of practice is a group of people who share a concern or a passion for something they currently do or want to do, and they learn how to do it better when they interact regularly. The registered users shall be assigned different COPs to become part of sector-specific discussion forums (chatrooms) and to exchange the relevant documents and project ideas within the assigned COPs for better results. The targeted sectors have been defined under the section ‘How we work’.";

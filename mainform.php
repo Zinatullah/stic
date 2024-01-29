@@ -44,7 +44,7 @@ include('./components/header.php')
 ?>
 
 <div class="container" style="background-color: blue; min-height: 50px; border-radius: 10px"></div>
-<section class="contact-us section" style="padding: 50px !important;">
+<section class="contact-us section">
 	<div class="container">
 		<div class="inner">
 			<div class="row">

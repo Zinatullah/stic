@@ -42,12 +42,12 @@ if (isset($_COOKIE['loggedIn'])) {
     <meta property="og:title" content="STIC">
     <meta property="og:description" content="Building the Nation with Passion">
     <meta property="og:url" content="https://stic.aogc.dev">
-    <meta property="og:image" itemprop="image" content="https://stic.aogc.dev/logo/prof_logo.png">
+    <meta property="og:image" itemprop="image" content="https://stic.aogc.dev/logo/logo.png">
     <meta property="og:type" content="website">
     <meta property="og:image:type" content="image/png">
     <meta property="og:updated_time" content="1619600299" />
 
-    <link rel="shortcut icon" href="https://stic.aogc.dev/logo/prof_logo.png" type="image/png">
+    <link rel="shortcut icon" href="https://stic.aogc.dev/logo/logo.png" type="image/png">
 
 
     <!-- Favicon -->
@@ -56,9 +56,6 @@ if (isset($_COOKIE['loggedIn'])) {
     <!-- Google Fonts -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet"> -->
 
-    <link rel="stylesheet" href="css/responsiveness.css">
-
-    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Nice Select CSS -->
@@ -115,39 +112,34 @@ if (isset($_COOKIE['loggedIn'])) {
         </div>
     </div> -->
     <!-- End Preloader -->
+
+    <!-- Header Area -->
     <header class="header">
-        <!-- Topbar -->
         <div class="text-center p-2" style="background: #87CEEB;border-radius: 30px;margin: 5px;padding: 5px;">
-            <h4 class="text-cetner" style="color: black; font-family: garamond; font-weight: 500;">
+            <h4 class="text-cetner" style="color: black; font-family: garamond; font-weight: 900;">
                 Science,Technology, and Innovation Commission (STIC) Afghanistan
             </h4>
-            <h6 style="margin-top: 5px; font-family: Calibri Light (Headings); font-style:italic;">
-                Building the Nation with Passion
-            </h6>
+            <h6 style="margin-top: 5px; font-family: Calibri Light (Headings); font-style:italic;">Building the Nation with Passion</h6>
         </div>
-        <!-- End Topbar -->
-        <!-- Header Inner -->
-        <div class="header-inner" style="direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; padding-right: 50px !important">
-            <div class="container-fluid">
+
+        <div class="header-inner">
+            <div class="container-fluid" style="direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; padding-right: 50px !important">
                 <div class="inner">
                     <div class="row">
-                        <div class="col-lg-2 col-md-2 col-12">
-                            <!-- Start Logo -->
-                            <div class="logo" style="margin: 0px; padding: 0px; margin-top: 5px !important">
-                                <button style="margin-left: 30px; border: none; background: white;" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
-                                    <img src="logo/prof_logo.png" alt="#" width="100px">
-                                </button>
+                        <div id="logo_dev">
+                            <div class="logo" style="margin-top: 15px !important;">
+                                <a style="position:absolute; margin-right: <?php echo $lng != "en" ? '50px;' : '' ?> margin-left: 50px; margin-top: -15px" href="index.html">
+                                    <img id="logo_size" src="img/logo.png" alt="#" width="100px">
+                                </a>
                             </div>
-                            <!-- End Logo -->
-                            <!-- Mobile Nav -->
-                            <div class="mobile-nav"></div>
-                            <!-- End Mobile Nav -->
                         </div>
-                        <div class="col-lg-10 col-md-10 col-12" style="margin-left: -40px">
-                            <!-- Main Menu -->
+                        <div class="col-12">
+                            <div class="mobile-nav"></div>
                             <div class="main-menu">
                                 <nav class="navigation">
-                                    <ul class="nav menu">
+                                    <ul class="nav menu" style="margin-top: 10px">
+                                        <li style="font-family:garamond;"></li>
+                                        <li id="logoLi"><img id="logo_size" src="img/logo.png" alt="#" width="70px"></li>
                                         <li style="font-family: garamond;" id="homepage_home"><a style="font-size: 16px;" class="ChangeMargin" href="/"><?php echo $home; ?></a></li>
                                         <li style="font-family:garamond; margin: 0px;">
                                             <a style="font-size: 16px;" href="#"><?php echo $about_us; ?>
@@ -182,6 +174,7 @@ if (isset($_COOKIE['loggedIn'])) {
                                         <li style="font-family:garamond; margin: 0px;"><a style="font-size:16px;" href="news.php"><?php echo $news_and_update; ?></a></li>
                                         <li style="font-family:garamond; margin: 0px;"><a style="font-size:16px;" href="./contact.php"><?php echo $contact_us; ?></a></li>
                                         <li style="font-family:garamond;  display: <?php echo $display_signin ?>;"><a style="font-size: 16px" href="login.php"><?php echo $sing_up_sign_in; ?></a>
+
 
                                         <li>
                                             <a href="#">
@@ -229,17 +222,9 @@ if (isset($_COOKIE['loggedIn'])) {
                                     </ul>
                                 </nav>
                             </div>
-                            <!--/ End Main Menu -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--/ End Header Inner -->
     </header>
-
-    <!-- <div class="bd-example"> -->
-
-    <!-- </div> -->
-
-    <?php include('./components/logo.php') ?>

@@ -14,7 +14,7 @@ if (isset($_GET['thankyou'])) {
 		<div class="bread-inner">
 			<div class="row">
 				<div class="col-12">
-					<h2 style="font-family: garamond;"><?php echo $contact_page_head ?></h2>
+					<p style="color: white; font-family: garamond; font-size: 25pt !important;"><?php echo $contact_page_head ?></p>
 					<ul class="bread-list">
 						<!-- <li><a href="index.html">Home</a></li>
 								<li><i class="icofont-simple-right"></i></li>
@@ -28,7 +28,7 @@ if (isset($_GET['thankyou'])) {
 <!-- End Breadcrumbs -->
 
 <!-- Start Contact Us -->
-<section class="contact-us section">
+<section class="contact-us section" style="padding: 0px; margin-top: 20px; margin-bottom: 100px">
 	<div class="container">
 		<div class="inner">
 			<div class="row">
@@ -44,10 +44,10 @@ if (isset($_GET['thankyou'])) {
 				</div>
 				<div class="col-lg-6">
 					<div class="contact-us-form">
-						<h2 style="text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;">
+						<p style="font-size: 25pt !important; font-family: garamond; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;">
 							<?php echo $contact_middle_head ?>
-						</h2>
-						<p style="direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;">
+						</p>
+						<p style="font-family:'Times New Roman'; margin-top: -20px; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;">
 							<?php echo $contact_middle_paragraph ?>
 						</p>
 						<!-- Form -->
@@ -94,10 +94,10 @@ if (isset($_GET['thankyou'])) {
 					<div class="single-info">
 						<i class="icofont icofont-ui-call"></i>
 						<div class="content">
-							<h3 class="text-center">+93 79 592 5750</h3>
-							<p class="text-center">stic@aogc.gov.af</p>
+							<h3 style="font-family: garamond;" class="text-center">+93 79 592 5750</h3>
+							<p style="font-family: garamond;" class="text-center">stic@aogc.gov.af</p>
 						</div>
-						<p class="text-center" style="position: absolute; color:white; bottom:20px; left:30px; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;"><?php echo $en_ps_contact ?></p>
+						<p class="text-center" style="font-family: garamond; position: absolute; color:white; bottom:20px; left:30px; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;"><?php echo $en_ps_contact ?></p>
 					</div>
 				</div>
 				<!--/End single-info -->
@@ -106,10 +106,10 @@ if (isset($_GET['thankyou'])) {
 					<div class="single-info">
 						<i class="icofont icofont-ui-call"></i>
 						<div class="content">
-							<h3 class="text-center">+93 78 001 6052</h3>
-							<p class="text-center">stic@aogc.gov.af</p>
+							<h3 style="font-family: garamond;" class="text-center">+93 78 001 6052</h3>
+							<p style="font-family: garamond;" class="text-center">stic@aogc.gov.af</p>
 						</div>
-						<p class="text-center" style="position: absolute; color:white; bottom:20px; left:30px; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;"><?php echo $en_dr_contact ?></p>
+						<p class="text-center" style="font-family: garamond; position: absolute; color:white; bottom:20px; left:30px; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;"><?php echo $en_dr_contact ?></p>
 					</div>
 				</div>
 				<!--/End single-info -->

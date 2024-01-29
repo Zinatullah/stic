@@ -73,8 +73,10 @@ if (isset($_POST['relocation_btn'])) {
     $mode_of_engagement = isset($_POST['mode_of_engagement']) ? $_POST['mode_of_engagement'] : $pre_data[26];
     $period_of_engagement = isset($_POST['period_of_engagement']) ? $_POST['period_of_engagement'] : $pre_data[27];
 
-    $relocation_query = "UPDATE main_form SET perfered_city= '$perfered_city',mode_of_engagement= '$mode_of_engagement' ,period_of_engagement= '$period_of_engagement' where email = '" . $email_address . "'";
+    $relocation_query = "UPDATE main_form SET live_in_afg= 'no', relocation = 'yes', perfered_city= '$perfered_city',mode_of_engagement= '$mode_of_engagement' ,period_of_engagement= '$period_of_engagement' where email = '" . $email_address . "'";
 
+    echo $relocation_query;
+    
     $result_relocation = mysqli_query($connection, $relocation_query);
 
     if (mysqli_affected_rows($connection) > 0) {
@@ -99,7 +101,7 @@ if (isset($_POST['proposal_btn'])) {
     $personal_requirements = $_POST['personal_requirements'];
     $project_requirements = $_POST['project_requirements'];
 
-    $proposal_query = "UPDATE  main_form  SET sector = '$sector', proposal_attachment = '$proposal_attachment_name', start_work = '$start_work', personal_requirements = '$personal_requirements', project_requirements = '$project_requirements' where email = '" . $email_address . "'";
+    $proposal_query = "UPDATE  main_form  SET proposal='yes', sector = '$sector', proposal_attachment = '$proposal_attachment_name', start_work = '$start_work', personal_requirements = '$personal_requirements', project_requirements = '$project_requirements' where email = '" . $email_address . "'";
 
     if ($proposal_attachment['name'] != ' ') {
         $targetDirectory = "uploads/";

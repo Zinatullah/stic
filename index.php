@@ -18,12 +18,12 @@ if (!isset($_COOKIE['language_mode'])) {
 <section class="slider">
 	<div class="hero-slider">
 		<!-- Start Single Slider -->
-		<div  class="single-slider" style="background-image:url('img/Banner 1.png');">
+		<div class="single-slider" style="background-image:url('img/Banner 1.png');">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="color: white; font-weight:100; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner1; ?></h1>
+							<p class="banner_responsive" style="color: white; font-weight:100; font-size: 22pt; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner1; ?></p>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Learn More</a> -->
@@ -40,7 +40,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="font-weight:100; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner2; ?></h1>
+							<p class="banner_responsive" style="font-weight:100; font-size: 22pt; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner2; ?></p>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a> -->
 								<!-- <a href="#" class="btn primary">About Us</a> -->
@@ -57,7 +57,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="font-weight:100; color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner3; ?></h1>
+							<p class="banner_responsive" style="font-weight:100; color: white; font-size: 22pt; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner3; ?></p>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -73,7 +73,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="font-weight:100; color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner4; ?></h1>
+							<p class="banner_responsive" style="font-weight:100; color: white; font-size: 22pt; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner4; ?></p>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -89,7 +89,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h2 style="font-weight:100; color: black; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner5; ?></h2>
+							<p class="banner_responsive" style="font-weight:100; color: black; font-size: 22pt; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner5; ?></p>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -105,7 +105,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="font-weight:100; color: white; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner6; ?></h1>
+							<p class="banner_responsive" style="font-weight:100; color: white; font-size: 22pt; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner6; ?></p>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -121,7 +121,7 @@ if (!isset($_COOKIE['language_mode'])) {
 				<div class="row">
 					<div class="col-lg-7">
 						<div class="text">
-							<h1 style="font-weight:100; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner7; ?></h1>
+							<p class="banner_responsive" style="font-weight:100; font-size: 22pt; font-family: Garamond; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>;"><?php echo $banner7; ?></p>
 							<div class="button">
 								<!-- <a href="#" class="btn">Get Appointment</a>
 									<a href="#" class="btn primary">Conatct Now</a> -->
@@ -153,7 +153,7 @@ if (!isset($_COOKIE['language_mode'])) {
 									<?php echo $What_is_STI_Commission_header ?>
 								</h4>
 								<p style="text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>"><?php echo $badge1 ?> </p>
-								<a href="./What_is_STI_Commission.php"><?php echo $learn_more ?><i class="fa fa-long-arrow-right"></i></a>
+								<a class="garamond_font" href="./What_is_STI_Commission.php"><?php echo $learn_more ?><i class="fa fa-long-arrow-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -171,7 +171,7 @@ if (!isset($_COOKIE['language_mode'])) {
 
 								</h4>
 								<p style="text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>"><?php echo $badge3 ?> </p>
-								<a href="./how_do_we_work.php"><?php echo $learn_more ?><i class="fa fa-long-arrow-right"></i></a>
+								<a class="garamond_font" href="./how_do_we_work.php"><?php echo $learn_more ?><i class="fa fa-long-arrow-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -186,7 +186,7 @@ if (!isset($_COOKIE['language_mode'])) {
 								<!-- <span>Lorem Amet</span> -->
 								<h4 style="font-family:garamond;direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>; color: white; text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>;"><?php echo $CommunitiesـofـPractice_head ?></h4>
 								<p style="text-align: <?php echo $lng != "en" ? 'right' : 'left' ?>; direction: <?php echo $lng != "en" ? 'rtl' : 'ltr' ?>"><?php echo $badge2 ?> </p>
-								<a href="./Communities_of_Practice.php"><?php echo $learn_more ?><i class="fa fa-long-arrow-right"></i></a>
+								<a class="garamond_font" href="./Communities_of_Practice.php"><?php echo $learn_more ?><i class="fa fa-long-arrow-right"></i></a>
 							</div>
 						</div>
 					</div>
