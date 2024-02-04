@@ -26,6 +26,11 @@ if (isset($_GET['confirmed'])) {
 	echo "<script>alert('$message');</script>";
 }
 
+if (isset($_GET['user_not_logged_in'])) {
+	$message = "You do not have any account, please sign up first";
+	echo "<script>alert('$message');</script>";
+}
+
 ?>
 
 <?php include('./components/header.php') ?>

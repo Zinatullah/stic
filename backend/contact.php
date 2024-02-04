@@ -370,18 +370,18 @@ if (isset($_POST["submit"])) {
         // $mail->Body = '<p style="padding: 10px">' . $message . '</p>' . '<br />' . '<h5 style="font-size: 16px; padding-left: 10px">' . $name . '</h5>' . '<h5 style="padding-left: 10px; font-size: 16px;">' . $user_email . '</h5>' . '<p style="font-size: 16px; padding-left: 10px">' . $phone . '</p>';
 
         $mail->Body = $message;
-        echo $mail->Body;
+        // echo $mail->Body;
 
         // echo $mail->Body;
         // $body_name = $name;
 
-        // $mail->send();
+        $mail->send();
 
         // insert in users table
         $sql = "INSERT INTO `contact`( `name`, `email`, `phone`, `subject`, `message`) VALUES ('$name','$user_email','$phone','$subject','$message')";
 
         mysqli_query($conn, $sql);
-        // header("Location: ../contact.php?thankyou");
+        header("Location: ../contact.php?thankyou");
         exit();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

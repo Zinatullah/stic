@@ -3,7 +3,7 @@
 header('Content-Type: text/html; charset=utf-8');
 
 if (!isset($_COOKIE['loggedIn'])) {
-	// header('location: ./login.php');
+	header('location: ./login.php?user_not_logged_in');
 }
 
 $connection = mysqli_connect('localhost', 'akrami', 'afghan', 'sti');
