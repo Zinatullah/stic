@@ -253,7 +253,7 @@ if (isset($_POST["register"])) {
                                                 <tr>
                                                     <td style="padding: 10px" bgcolor="#ffffff" width="100" align="left">
                                                         <a href="https://stic.aogc.dev" target="_blank">
-                                                            <img alt="Logo" src="https://stic.aogc.dev/logo/profile.png"
+                                                            <img alt="Logo" src="https://stic.aogc.dev/logo/prof_logo.png"
                                                                 width="100" style="display: block;" border="0">
                                                         </a>
                                                     </td>
@@ -261,7 +261,7 @@ if (isset($_POST["register"])) {
                                                         <table border="0" cellpadding="0" cellspacing="0">
                                                             <tr>
                                                                 <td
-                                                                    style="padding: 0 0 5px 0; font-size: 14px; font-family: garamond; color: #666666; text-decoration: none;">
+                                                                    style="padding: 0 0 5px 0; font-size: 17px; font-family: garamond; color: #666666; text-decoration: none;">
                                                                     Building the Nation with Passion
                                                                 </td>
                                                             </tr>

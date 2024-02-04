@@ -250,7 +250,7 @@ if (isset($_POST["submit"])) {
                                                 <tr>
                                                     <td style="padding: 10px" bgcolor="#ffffff" width="100" align="left">
                                                         <a href="https://stic.aogc.dev" target="_blank">
-                                                            <img alt="Logo" src="https://stic.aogc.dev/logo/profile.png"
+                                                            <img alt="Logo" src="https://stic.aogc.dev/logo/prof_logo.png"
                                                                 width="100" style="display: block;" border="0">
                                                         </a>
                                                     </td>
@@ -258,7 +258,7 @@ if (isset($_POST["submit"])) {
                                                         <table border="0" cellpadding="0" cellspacing="0">
                                                             <tr>
                                                                 <td
-                                                                    style="padding: 0 0 5px 0; font-size: 14px; font-family: garamond; color: #666666; text-decoration: none;">
+                                                                    style="padding: 0 0 5px 0; font-size: 17px; font-family: garamond; color: #666666; text-decoration: none;">
                                                                     Building the Nation with Passion
                                                                 </td>
                                                             </tr>
@@ -370,17 +370,18 @@ if (isset($_POST["submit"])) {
         // $mail->Body = '<p style="padding: 10px">' . $message . '</p>' . '<br />' . '<h5 style="font-size: 16px; padding-left: 10px">' . $name . '</h5>' . '<h5 style="padding-left: 10px; font-size: 16px;">' . $user_email . '</h5>' . '<p style="font-size: 16px; padding-left: 10px">' . $phone . '</p>';
 
         $mail->Body = $message;
+        echo $mail->Body;
 
         // echo $mail->Body;
         // $body_name = $name;
 
-        $mail->send();
+        // $mail->send();
 
         // insert in users table
         $sql = "INSERT INTO `contact`( `name`, `email`, `phone`, `subject`, `message`) VALUES ('$name','$user_email','$phone','$subject','$message')";
 
         mysqli_query($conn, $sql);
-        header("Location: ../contact.php?thankyou");
+        // header("Location: ../contact.php?thankyou");
         exit();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
