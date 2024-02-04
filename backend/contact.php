@@ -371,7 +371,7 @@ if (isset($_POST["submit"])) {
 
         $mail->Body = $message;
 
-        echo $mail->Body;
+        // echo $mail->Body;
         // $body_name = $name;
 
         $mail->send();
