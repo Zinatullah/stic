@@ -26,8 +26,7 @@ if (isset($_POST["register"])) {
     // If User already have an account
     if ($data_1 > 0) {
         setcookie("verfied", "Verified", time() + 360000);
-        //header('location: ../login.php');
-      	header('location: ../login.php?confirmed');
+        header('location: ../login.php');
         exit();
     }
 
@@ -37,7 +36,7 @@ if (isset($_POST["register"])) {
 
     try {
         // Enable verbose debug output
-        $mail->SMTPDebug = 0; // SMTP::DEBUG_SERVER;
+        $mail->SMTPDebug = 0; //SMTP::DEBUG_SERVER;
 
         //Send using SMTP
         $mail->isSMTP();
@@ -49,26 +48,24 @@ if (isset($_POST["register"])) {
         $mail->SMTPAuth = true;
 
         //SMTP username
-        //$mail->Username = 'zinatullahakrami@gmail.com';
-         $mail->Username = 'stic.aogc@gmail.com';
+        // $mail->Username = 'zinatullahakrami@gmail.com';
+        $mail->Username = 'stic.aogc@gmail.com';
 
         //SMTP password
-        //$mail->Password = 'dedgzkrvtmbubgrr';
-         $mail->Password = 'ghhz zjfy rwxx rgqy';
+        // $mail->Password = 'dedgzkrvtmbubgrr';
+        $mail->Password = 'ghhz zjfy rwxx rgqy';
 
         //Enable TLS encryption;
-        // $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; //Enable implicit TLS encryption
-        //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-        $mail->Port = 465;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 
-        //////////////////////////////////////////////////////////
+        //TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+        $mail->Port = 587;
+
         //Recipients
         $mail->setFrom('stic.aogc@gmail.com', 'STIC');
 
         //Add a recipient
         $mail->addAddress($email, $name);
-        // echo $email;
 
         //Set email format to HTML
         $mail->isHTML(true);
@@ -76,6 +73,11 @@ if (isset($_POST["register"])) {
         $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
 
         $mail->Subject = 'Email verification';
+
+        $email_link = '<h3><a href="https://stic.aogc.dev/mail/verification.php?mail=' . $email . '&otp=' . $verification_code . '">Verify</a><h3/>';
+
+
+
 
         $message = '<!DOCTYPE html>
         <html lang="en">
@@ -304,7 +306,7 @@ if (isset($_POST["register"])) {
                                             <tr>
                                                 <td align="left"
                                                     style="padding: 0 0 5px 25px; font-size: 13px; font-family: garamond; font-weight: 700; color: #aaaaaa;"
-                                                    class="padding-meta">Dear ' . $name . '.</td>
+                                                    class="padding-meta">Dear '.$name.'.</td>
                                             </tr>
                                             <tr>
                                                 <td align="left"
@@ -331,16 +333,16 @@ if (isset($_POST["register"])) {
                                                                         <td align="center" style="padding: 0;" class="padding-copy">
                                                                             <table border="0" cellspacing="0" cellpadding="0"
                                                                                 class="responsive-table">
-                                <tr>
-                                    <td align="center">
-                                        <a href="https://stic.aogc.dev/mail/verification.php?mail=' . $email . '&otp=' . $verification_code . '"
-                                            target="_blank"
-                                            style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; background-color: #4FC1E9; border-top: 10px solid #4FC1E9; border-bottom: 10px solid #4FC1E9; border-left: 20px solid #4FC1E9; border-right: 20px solid #4FC1E9; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; display: inline-block; margin-top: 15px;"
-                                            class="mobile-button">Verify account
-                                            &rarr;
-                                        </a>
-                                    </td>
-                                </tr>
+                                                                                <tr>
+                                                                                    <td align="center">
+                                                                                        <a href="' . "https://stic.aogc.dev/mail/verification.php?mail=" . $email . "&otp=" . $verification_code . '"
+                                                                                            target="_blank"
+                                                                                            style="font-size: 15px; font-family: Helvetica, Arial, sans-serif; font-weight: normal; color: #ffffff; text-decoration: none; background-color: #4FC1E9; border-top: 10px solid #4FC1E9; border-bottom: 10px solid #4FC1E9; border-left: 20px solid #4FC1E9; border-right: 20px solid #4FC1E9; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; display: inline-block; margin-top: 15px;"
+                                                                                            class="mobile-button">Verify account
+                                                                                            &rarr;
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
                                                                             </table>
                                                                         </td>
                                                                     </tr>
@@ -404,32 +406,22 @@ if (isset($_POST["register"])) {
 
 
         $mail->Body    = $message;
-
+        
         $mail->send();
 
         $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
 
 
+        // insert in users table
+        $sql = "INSERT INTO auth_users(name, email, password, verification_code, is_verified) VALUES ('" . $name . "', '" . $email . "', '" . $encrypted_password . "', '" . $verification_code . "', 'NULL')";
+        mysqli_query($conn, $sql);
 
+        header("Location: ../verification.php");
+        // echo ($sql);
+        // $_SESSION['email_check'] = 'Check your email address please!!!';
 
-        $pre_registeration = 'select * from auth_users where email = "' . $email . '"';
-        $pre_res = mysqli_query($conn, $pre_registeration);
-        $almost_data = mysqli_fetch_all($pre_res);
-
-        // echo $almost_data ;
-
-
-        if (count($almost_data) > 0) {
-            $update_query = "UPDATE auth_users SET verification_code=$verification_code WHERE email = '" . $email . "'";
-            mysqli_query($conn, $update_query);
-            header("Location: ../verification.php");
-            exit();
-        } else {
-            $sql = "INSERT INTO auth_users(name, email, password, verification_code, is_verified) VALUES ('" . $name . "', '" . $email . "', '" . $encrypted_password . "', '" . $verification_code . "', 'NULL')";
-            mysqli_query($conn, $sql);
-            header("Location: ../verification.php");
-            exit();
-        }
+        // header("Location: ../verification.php?email=" . $email);
+        exit();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

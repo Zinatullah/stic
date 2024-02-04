@@ -52,7 +52,7 @@ if (isset($_SESSION['email_check'])) {
 								</g>
 							</svg>
 							<h5 style="display: inline-block; position:relative; top:-10px">
-								Please check your email adress to confirm your account!
+								Please check your email address to confirm your account!
 							</h5>
 						</div>
 					</div>

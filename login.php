@@ -21,6 +21,10 @@ if (isset($_GET['no'])) {
 	echo "<script>alert('$message');</script>";
 }
 
+if (isset($_GET['confirmed'])) {
+	$message = "Your account has been successfully created and confirmed. You are now able to log in.";
+	echo "<script>alert('$message');</script>";
+}
 
 ?>
 
