@@ -372,15 +372,15 @@ if (isset($_POST["submit"])) {
         $mail->Body = $message;
 
         echo $mail->Body;
-        $body_name = $name;
+        // $body_name = $name;
 
-        // $mail->send();
+        $mail->send();
 
         // insert in users table
         $sql = "INSERT INTO `contact`( `name`, `email`, `phone`, `subject`, `message`) VALUES ('$name','$user_email','$phone','$subject','$message')";
 
         mysqli_query($conn, $sql);
-        // header("Location: ../contact.php?thankyou");
+        header("Location: ../contact.php?thankyou");
         exit();
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
