@@ -61,9 +61,10 @@ if (isset($_GET['thankyou'])) {
 									<input type="email" name="email" placeholder="Email" required="" class="form-control" style="height: 50px; padding-left: 5px; margin-top: 15px">
 
 								</div>
-								<div class="col-lg-6">
+								<div class="col-lg-6" style="margin-top: 6px;">
+									<input type="tel" id="phone" name="phone" placeholder="Phone" required="" class="form-control" style="height: 49px; padding-left: 50px; margin-top: 15px">
+									<!-- <input class="form-control" required="true" id="phone" type="tel" name="phone" style=" height: 42px; padding-left: 65px;" placeholder="Phone Number *"> -->
 
-									<input type="text" name="phone" placeholder="Phone" required="" class="form-control" style="height: 50px; padding-left: 5px; margin-top: 15px">
 								</div>
 								<div class="col-lg-6">
 
