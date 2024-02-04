@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 
     $email_address = $_COOKIE['loggedIn'];
 
-    $check_query = 'select * from main_form where email_address = "' . $email_address . '"';
+    $check_query = 'select * from main_form where email = "' . $email_address . '"';
     $check_result = mysqli_query($connection, $check_query);
     $data = mysqli_fetch_all($check_result);
 
@@ -453,7 +453,7 @@ if (isset($_POST['submit'])) {
                 $mail->Body  = $message;
                 $mail->send();
             } catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
             }
 
             $ref_query = "INSERT INTO references_people( name, relation, email, phone, main_email) VALUES ('$ref_name','$ref_relation','$ref_email_add','$ref_phone_number','$logged_in_email_address')";
@@ -477,6 +477,8 @@ if (isset($_POST['submit'])) {
     $reference_email_address = $_COOKIE['loggedIn'];
 
     $query = "INSERT INTO main_form( first_name, last_name, date_of_birth, birth_country, nationality, nationality_second, residential_country, district, afghan_check, volayat, volaswali, tazkira, qualification, specialization, university, university_country, profession, experience, job, last_employer, employement_country, area_of_contribution, live_in_afg, relocation, perfered_city, mode_of_engagement, period_of_engagement, proposal, sector, proposal_attachment, start_work, personal_requirements, project_requirements, phone, email_address, website_address, linkedin_page, reference, feedback, email) VALUES ('$first_name', '$last_name', '$date_of_birth', '$birth_country', '$nationality', '$nationality_second', '$residential_country', '$district', '$afghan_check', '$volayat', '$volaswali', '$tazkira', '$qualification', '$specialization', '$university', '$university_country', '$profession', '$experience', '$job', '$last_employer', '$employement_country', '$area_of_contribution', '$live_in_afg', '$relocation', '$perfered_city', '$mode_of_engagement', '$period_of_engagement', '$proposal', '$sector', '$proposal_attachment_name', '$start_work', '$personal_requirements', '$project_requirements', '$phone', '$email_address', '$website_address', '$linkedin_page', '$reference', '$feedback', '$reference_email_address' )";
+
+    echo $query;
 
     $result = mysqli_query($connection, $query);
     if (mysqli_affected_rows($connection) > 0) {

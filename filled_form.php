@@ -46,6 +46,17 @@ if (isset($_GET['remove'])) {
 }
 
 
+if (isset($_COOKIE['loggedIn'])) {
+	$email = $_COOKIE['loggedIn'];
+	$pre_data_query = 'SELECT * FROM `main_form` where email ="' . $email . '"';
+	$pre_result = mysqli_query($connection, $pre_data_query);
+	$pre_data = mysqli_fetch_row($pre_result);
+
+	if (mysqli_num_rows($pre_result) <= 0) {
+		header('location: ./mainform.php');
+	}
+}
+
 $provinces = 'SELECT * FROM `z_countries`';
 $result = mysqli_query($connection, $provinces);
 $data_country = mysqli_fetch_all($result);

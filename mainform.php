@@ -35,7 +35,7 @@ if (isset($_COOKIE['loggedIn'])) {
 	$pre_data = mysqli_fetch_row($pre_result);
 
 	if (mysqli_num_rows($pre_result) > 0) {
-		// header('location: ./filled_form.php');
+		header('location: ./filled_form.php');
 	}
 }
 
@@ -477,6 +477,9 @@ include('./components/header.php')
 				</div>
 			</div>
 		</div>
+
+		<?php include('./components/contribution.php') ?>
+
 		<!-- <div class="contact-info">
 			<div class="row">
 				<div class="col-lg-4 col-12 ">
