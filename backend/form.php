@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
 
                 $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
 
-                $mail->Subject = 'Email verification';
+                $mail->Subject = 'You are referred by someone to Join STIC page';
 
                 $message = '<!DOCTYPE html>
                 <html lang="en">
